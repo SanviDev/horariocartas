@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    background-color: #232323;
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+}
+
+main {
+    padding: 3rem;
+
+}
+
+.hora {
+    margin: 5rem auto 0 auto;
+    width: 20rem;
+    /* Aumenta el ancho total del contenedor */
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* Alinea con el ancho de .hora */
+}
+
+h2 span {
+    width: 3rem;
+    /* Aumenta el ancho de cada span para dar más espacio */
+    text-align: center;
+}
+
+.infotext {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    /* Aumenta el espacio entre cada grupo */
+}
+
+.hourcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 3rem;
+    /* Aumenta el ancho para alinear con el span */
+}
+
+.info-meeting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    margin: 3rem auto;
+    text-align: center;
+
+}
+
+.join-meeting {
+    width: 13rem;
+    height: 4rem;
+    background-color: #0050ef;
+    border-radius: 20px;
+    margin: 2rem auto;
+
+    & :hover {
+        background-color: #1e66f6;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 20px;
+
+    }
+}
+
+.join-meeting a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    gap: 4px;
+}
+
+.next-meeting {
+    margin: 4rem 2rem 0 2rem;
+    color: #aaa;
+}
+
+.in-proccess {
+    display: inline;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto;
+    position: relative;
+
+    & .point {
+        margin: 0 1px;
+        width: auto;
+        height: min-content;
+    }
+}
+
+.idPass {
+    margin: 5px auto;
+    color: #eee;
+}
+
+#meeting {
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+#more-info {
+    color: #fafaff;
+    cursor: pointer;
+}
+
+#idPassword {
+    display: none;
+}
+
+#idPassword.show {
+    display: block;
+    margin-top: 1rem;
+}
+
+.idPass#meeting {
+    font-weight: bold;
+    color: #aaa;
+}
+
+/* @keyframes proccess {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+} */
