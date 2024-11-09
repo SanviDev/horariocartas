@@ -15,11 +15,16 @@ function regresiveCount() {
     const año = currentDay.getFullYear();
     const mes = currentDay.getMonth();
     const day = currentDay.getDate();
+    let dayForTuesday = 0
+    let dayForWednesday = 0
 
-
-    const dayForWednesday = (4 - currentDay.getDay()) % 7 || 7;
-    const dayForTuesday = (3 - currentDay.getDay()) % 7 || 7;
-
+    if ((4 - currentDay.getDay()) % 7 > 0 || (3 - currentDay.getDay()) % 7 > 0) {
+        dayForWednesday = (4 - currentDay.getDay()) % 7 || 7;
+        dayForTuesday = (3 - currentDay.getDay()) % 7 || 7;
+    } else {
+        dayForWednesday = (4 + currentDay.getDay()) % 7 || 7;
+        dayForTuesday = (3 + currentDay.getDay()) % 7 || 7;
+    }
     let zoomMartes = new Date(año, mes, day + dayForTuesday, 23, 0, 0);
     let zoomMiercoles = new Date(año, mes, day + dayForWednesday, 23, 0, 0);
 
@@ -60,12 +65,24 @@ function regresiveCount() {
     const diferenciaMinutosMiercoles = Math.floor(diferenciaSegundosMiercoles / 60);
     const diferenciaHorasMiercoles = Math.floor(diferenciaMinutosMiercoles / 60);
     const diferenciaDiasMiercoles = Math.floor(diferenciaHorasMiercoles / 24);
-    if (diferenciaHorasMiercoles < 0 && diferenciaDiasMiercoles > -5) { 
+
+    if (currentDay.getDay() === 6 || currentDay.getDay() === 7) {
+        if ($dias && $horas && $minuts && $seconds) {
+            $dias.innerHTML = diferenciaDiasMartes + 2;
+            $horas.innerHTML = diferenciaHorasMartes % 24;
+            $minuts.innerHTML = diferenciaMinutosMartes % 60;
+            $seconds.innerHTML = diferenciaSegundosMartes % 60;
+            $themeOfMeeting.innerHTML = "Zoom del Martes";
+            $nextDay.innerHTML = "miercoles";
+            $nextHour.innerHTML = zoomMiercoles.getHours() % 24;
+            $nextMinute.innerHTML = `${zoomMiercoles.getMinutes() % 60}0`;
+        }
+    }else if (diferenciaHorasMiercoles < 0 && diferenciaDiasMiercoles > -5) {
         $horary.innerHTML = '<h2 class="in-proccess">Reunión en curso<span class="point one">.</span><span class="point two">.</span><span class="point tree">.</span></h2>';
         $nextDay.innerHTML = "martes";
         $nextHour.innerHTML = zoomMartes.getHours() % 24;
         $nextMinute.innerHTML = `${zoomMartes.getMinutes() % 60}0`;
-    }else if (diferenciaDiasMartes < diferenciaDiasMiercoles && diferenciaDiasMartes > 0 || diferenciaHorasMiercoles < -5) {
+    } else if (diferenciaDiasMartes < diferenciaDiasMiercoles && diferenciaDiasMartes > 0 || diferenciaHorasMiercoles < -5) {
         // Mostrar horas en los elementos del DOM
         if ($dias && $horas && $minuts && $seconds) {
             $dias.innerHTML = diferenciaDiasMartes;
@@ -99,23 +116,29 @@ function regresiveCount() {
         } else {
             console.error("Uno o más elementos no existen en el DOM.");
         }
-        
+
     }
 
 
-        // logs
-        // console.log("Diferencia en horas para martes:", diferenciaHorasMartes);
-        // console.log("Diferencia en horas para miércoles:", diferenciaHorasMiercoles);
-        // console.log("Diferencia en minutos para martes:", diferenciaMinutosMartes);
-        // console.log("Diferencia en minutos para miércoles:", diferenciaMinutosMiercoles);
-        // console.log("Diferencia en segundos para martes:", diferenciaSegundosMartes);
-        // console.log("Diferencia en segundos para miércoles:", diferenciaSegundosMiercoles);
-        // console.log("Diferencia en dias para martes:", diferenciaDiasMartes);
-        // console.log("Diferencia en dias para miércoles:", diferenciaDiasMiercoles);
+
+    // logs
+  
+  
+    // console.log("Diferencia en horas para martes:", diferenciaHorasMartes % 24);
+    // console.log("Diferencia en horas para miércoles:", diferenciaHorasMiercoles);
+    // console.log("Diferencia en minutos para martes:", diferenciaMinutosMartes);
+    // console.log("Diferencia en minutos para miércoles:", diferenciaMinutosMiercoles);
+    // console.log("Diferencia en segundos para martes:", diferenciaSegundosMartes);
+    // console.log("Diferencia en segundos para miércoles:", diferenciaSegundosMiercoles);
+    // console.log("Diferencia en dias para martes:", diferenciaDiasMartes);
+    // console.log("Diferencia en dias para miércoles:", diferenciaDiasMiercoles);
+    // console.log("Dias para martes:", dayForTuesday);
+    // console.log("Dias para miércoles:", dayForWednesday);
 
 
-    setInterval(regresiveCount, 1000);      
+
     
+    setInterval(regresiveCount, 1000);          
 }
 
 regresiveCount()
