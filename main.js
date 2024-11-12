@@ -82,7 +82,7 @@ function regresiveCount() {
         $nextDay.innerHTML = "martes";
         $nextHour.innerHTML = zoomMartes.getHours() % 24;
         $nextMinute.innerHTML = `${zoomMartes.getMinutes() % 60}0`;
-    } else if (diferenciaDiasMartes < diferenciaDiasMiercoles && diferenciaHorasMartes > 0 || diferenciaHorasMiercoles < -5) {
+    } else if (diferenciaDiasMartes < diferenciaDiasMiercoles && diferenciaHorasMartes >= 0 || diferenciaHorasMiercoles < -5) {
         // Mostrar horas en los elementos del DOM
         if ($dias && $horas && $minuts && $seconds) {
             $dias.innerHTML = diferenciaDiasMartes;
