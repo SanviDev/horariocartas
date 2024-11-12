@@ -77,12 +77,12 @@ function regresiveCount() {
             $nextHour.innerHTML = zoomMiercoles.getHours() % 24;
             $nextMinute.innerHTML = `${zoomMiercoles.getMinutes() % 60}0`;
         }
-    }else if (diferenciaHorasMiercoles < 0 && diferenciaDiasMiercoles > -5) {
+    }else if (diferenciaHorasMiercoles < 0 && diferenciaHorasMiercoles > -5) {
         $horary.innerHTML = '<h2 class="in-proccess">Reunión en curso<span class="point one">.</span><span class="point two">.</span><span class="point tree">.</span></h2>';
         $nextDay.innerHTML = "martes";
         $nextHour.innerHTML = zoomMartes.getHours() % 24;
         $nextMinute.innerHTML = `${zoomMartes.getMinutes() % 60}0`;
-    } else if (diferenciaDiasMartes < diferenciaDiasMiercoles && diferenciaDiasMartes > 0 || diferenciaHorasMiercoles < -5) {
+    } else if (diferenciaDiasMartes < diferenciaDiasMiercoles && diferenciaHorasMartes > 0 || diferenciaHorasMiercoles < -5) {
         // Mostrar horas en los elementos del DOM
         if ($dias && $horas && $minuts && $seconds) {
             $dias.innerHTML = diferenciaDiasMartes;
@@ -97,12 +97,12 @@ function regresiveCount() {
             console.error("Uno o más elementos no existen en el DOM.");
         }
 
-    } else if (diferenciaHorasMartes < 0 && diferenciaHorasMartes > -5) {
+    } else if (diferenciaHorasMartes < 0 && diferenciaHorasMartes > -5 ) {
         $horary.innerHTML = '<h2 class="in-proccess">Reunión en curso<span class="point one">.</span><span class="point two">.</span><span class="point tree">.</span></h2>';
         $nextDay.innerHTML = "miercoles";
         $nextHour.innerHTML = zoomMiercoles.getHours() % 24;
         $nextMinute.innerHTML = `${zoomMiercoles.getMinutes() % 60}0`;
-    } else if (diferenciaDiasMartes > diferenciaDiasMiercoles || diferenciaHorasMartes <= -5) {
+    } else if (diferenciaDiasMartes > diferenciaDiasMiercoles || diferenciaHorasMartes <= -5 ) {
         // Mostrar horas en los elementos del DOM
         if ($dias && $horas && $minuts && $seconds) {
             $dias.innerHTML = diferenciaDiasMiercoles;
@@ -124,21 +124,21 @@ function regresiveCount() {
     // logs
   
   
-    // console.log("Diferencia en horas para martes:", diferenciaHorasMartes % 24);
-    // console.log("Diferencia en horas para miércoles:", diferenciaHorasMiercoles);
-    // console.log("Diferencia en minutos para martes:", diferenciaMinutosMartes);
-    // console.log("Diferencia en minutos para miércoles:", diferenciaMinutosMiercoles);
-    // console.log("Diferencia en segundos para martes:", diferenciaSegundosMartes);
-    // console.log("Diferencia en segundos para miércoles:", diferenciaSegundosMiercoles);
-    // console.log("Diferencia en dias para martes:", diferenciaDiasMartes);
-    // console.log("Diferencia en dias para miércoles:", diferenciaDiasMiercoles);
-    // console.log("Dias para martes:", dayForTuesday);
-    // console.log("Dias para miércoles:", dayForWednesday);
+    console.log("Diferencia en horas para martes:", diferenciaHorasMartes % 24);
+    console.log("Diferencia en horas para miércoles:", diferenciaHorasMiercoles % 24);
+    console.log("Diferencia en minutos para martes:", diferenciaMinutosMartes);
+    console.log("Diferencia en minutos para miércoles:", diferenciaMinutosMiercoles);
+    console.log("Diferencia en segundos para martes:", diferenciaSegundosMartes);
+    console.log("Diferencia en segundos para miércoles:", diferenciaSegundosMiercoles);
+    console.log("Diferencia en dias para martes:", diferenciaDiasMartes);
+    console.log("Diferencia en dias para miércoles:", diferenciaDiasMiercoles);
+    console.log("Dias para martes:", dayForTuesday);
+    console.log("Dias para miércoles:", dayForWednesday);
 
 
 
     
-    setInterval(regresiveCount, 1000);          
+    // setInterval(regresiveCount, 1000);          
 }
 
 regresiveCount()
