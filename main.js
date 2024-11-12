@@ -124,21 +124,21 @@ function regresiveCount() {
     // logs
   
   
-    console.log("Diferencia en horas para martes:", diferenciaHorasMartes % 24);
-    console.log("Diferencia en horas para miércoles:", diferenciaHorasMiercoles % 24);
-    console.log("Diferencia en minutos para martes:", diferenciaMinutosMartes);
-    console.log("Diferencia en minutos para miércoles:", diferenciaMinutosMiercoles);
-    console.log("Diferencia en segundos para martes:", diferenciaSegundosMartes);
-    console.log("Diferencia en segundos para miércoles:", diferenciaSegundosMiercoles);
-    console.log("Diferencia en dias para martes:", diferenciaDiasMartes);
-    console.log("Diferencia en dias para miércoles:", diferenciaDiasMiercoles);
-    console.log("Dias para martes:", dayForTuesday);
-    console.log("Dias para miércoles:", dayForWednesday);
+    // console.log("Diferencia en horas para martes:", diferenciaHorasMartes % 24);
+    // console.log("Diferencia en horas para miércoles:", diferenciaHorasMiercoles % 24);
+    // console.log("Diferencia en minutos para martes:", diferenciaMinutosMartes);
+    // console.log("Diferencia en minutos para miércoles:", diferenciaMinutosMiercoles);
+    // console.log("Diferencia en segundos para martes:", diferenciaSegundosMartes);
+    // console.log("Diferencia en segundos para miércoles:", diferenciaSegundosMiercoles);
+    // console.log("Diferencia en dias para martes:", diferenciaDiasMartes);
+    // console.log("Diferencia en dias para miércoles:", diferenciaDiasMiercoles);
+    // console.log("Dias para martes:", dayForTuesday);
+    // console.log("Dias para miércoles:", dayForWednesday);
 
 
 
     
-    // setInterval(regresiveCount, 1000);          
+    setInterval(regresiveCount, 1000);          
 }
 
 regresiveCount()
